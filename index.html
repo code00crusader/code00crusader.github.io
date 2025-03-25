@@ -95,31 +95,46 @@
       100% { transform: translateX(0); }
     }
 
-    .stats, .events, .description, .activities, .practical-info, .products {
+    section {
+      padding: 30px 10px;
       text-align: center;
-      margin: 30px 10px;
     }
 
-    .stat-box {
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .activities ul, .facts ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
       display: inline-block;
-      margin: 15px;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, background-color 0.3s;
     }
 
-    .stat-box:hover {
-      transform: scale(1.05);
-      background-color: var(--light-bg);
+    .activities li, .facts li {
+      margin: 10px 0;
+    }
+
+    .activities li::before, .facts li::before {
+      content: "•";
+      margin-right: 10px;
+      color: var(--accent-color);
     }
 
     .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 30px 10px;
+      margin: 30px auto;
     }
 
     .gallery img {
@@ -137,7 +152,7 @@
 
     .video, .map {
       text-align: center;
-      margin: 30px 10px;
+      margin: 30px auto;
     }
 
     iframe {
@@ -193,22 +208,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .activities ul {
-      list-style-type: none;
-      padding: 0;
-      text-align: left;
-      display: inline-block;
-    }
-
-    .activities li {
-      margin: 10px 0;
-    }
-
-    .activities li::before {
-      content: "•";
-      margin-right: 10px;
-    }
-
     /* Decorative Shapes */
     .shape {
       position: absolute;
@@ -255,6 +254,8 @@
   <nav>
     <a href="#slideshow">Slideshow</a>
     <a href="#description">Përshkrimi</a>
+    <a href="#history">Historiku</a>
+    <a href="#culture">Kultura</a>
     <a href="#activities">Aktivitete</a>
     <a href="#gallery">Galeri</a>
     <a href="#video">Video</a>
@@ -263,60 +264,110 @@
     <button onclick="toggleDarkMode()">Dark Mode</button>
   </nav>
 
+  <!-- Slideshow with Direct Image URLs -->
   <section id="slideshow" class="slideshow">
     <div class="slides">
-      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g318867-d2341285-Reviews-Zekate_House-Gjirokaster_Gjirokaster_County.html&psig=AOvVaw3Pm9BkD4VOjpuBuGp7gJw6&ust=1743033050659000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDFxaC2powDFQAAAAAdAAAAABAE" alt="Photo 1">
-      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iett.al%2Fgjirokastra%2F&psig=AOvVaw03hVze6OA4CRoFNIy2EP5X&ust=1743033066303000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPja1ae2powDFQAAAAAdAAAAABAE" alt="Photo 2">
-      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.instagram.com%2Fp%2FCr0EiHYtVT0%2F%3Fref%3Dgpd-guides.ghost.io%26hl%3Den&psig=AOvVaw03hVze6OA4CRoFNIy2EP5X&ust=1743033066303000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPja1ae2powDFQAAAAAdAAAAABAt" alt="Photo 3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Gjirokastra.jpg" alt="Pamje nga Gjirokastra">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Gjirokast%C3%ABr_old_city.jpg" alt="Qyteti i Vjetër i Gjirokastrës">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Castle_of_Gjirokast%C3%ABr.jpg" alt="Kalaja e Gjirokastrës">
     </div>
   </section>
 
-  <section id="description" class="description">
-    <h2>Përshkrimi i Gjirokastrës</h2>
-    <p>Gjirokastra, e njohur si "Qyteti i Gurtë", është një qytet muze dhe Trashëgimi Botërore e UNESCO-s, i famshëm për arkitekturën e tij karakteristike të shtëpive të gurtë. Qyteti ka një histori të pasur që shpaloset nëpërpjet kohës dhe mbush vështrimin me pamje panoramike të mrekullueshme nga kalaja që dominon qytetin.</p>
+  <!-- Description Section -->
+  <section id="description">
+    <h2 class="section-title">Përshkrimi i Gjirokastrës</h2>
+    <div class="content">
+      <p>Gjirokastra, e njohur si "Qyteti i Gurtë", është një qytet muze dhe Trashëgimi Botërore e UNESCO-s, i famshëm për arkitekturën e tij unike prej guri. Kalaja, shtëpitë tradicionale dhe rrugët e ngushta e bëjnë atë një destinacion të paharrueshëm.</p>
+    </div>
   </section>
 
-  <section id="activities" class="activities">
-    <h2>Aktivitete Turistike</h2>
-    <ul>
-      <li>Vizitë në Kalanë e Gjirokastrës</li>
-      <li>Shëtitje nëpër Pazarin e Vjetër</li>
-      <li>Vizitë në Shtëpinë e Skëndulit</li>
-      <li>Ecje në natyrë në Luginën e Drinos</li>
-      <li>Vizitë në Muzeun Etnografik</li>
-      <li>Vizitë në Muzeun e Armeve</li>
-    </ul>
+  <!-- History Section -->
+  <section id="history">
+    <h2 class="section-title">Historiku i Gjirokastrës</h2>
+    <div class="content">
+      <p>Gjirokastra ka rrënjë të thella në historinë mesjetare dhe ka qenë një nyje strategjike kulturore dhe ushtarake për shekuj. Qyteti ka mbajtur gishtin e historisë shqiptare me ngjarje të rëndësishme dhe trashëgimi që daton që nga periudha osmanase. Kalaja e Gjirokastrës dhe shtëpitë e guri janë dëshmi e pasurisë historike të kësaj zone.</p>
+    </div>
   </section>
 
-  <section id="gallery" class="gallery">
-    <img src="https://ts4.mm.bing.net/th?id=OIP.kOsppVlfQa5jAg0kgL8xogHaEK&pid=15.1" alt="Foto 1">
-    <img src="https://th.bing.com/th/id/OIP.o8yrwFEXlc307Gw79ac4FQHaFj?w=226&h=180&c=7&r=0&o=5&pid=1.7" alt="Foto 2">
-    <img src="https://th.bing.com/th/id/OIP.qnUvR0oUp5wr0CqVSrXXjQHaEK?w=328&h=184&c=7&r=0&o=5&pid=1.7" alt="Foto 3">
-    <img src="https://th.bing.com/th/id/R.c921b8d59dbce0a6c407cdee13e0b47f?rik=lCI0m8oekZmDyw&pid=ImgRaw&r=0" alt="Foto 4">
-    <img src="https://th.bing.com/th/id/OIP.RhTvsnoaa6-ZA8pOX3bCpAHaEK?w=326&h=183&c=7&r=0&o=5&pid=1.7" alt="Foto 5">
-    <img src="https://e1.pxfuel.com/desktop-wallpaper/919/790/desktop-wallpaper-gjirokastra-or-gjirokaster-albania-looking-across-the-typical-architecture-of-the-old-town-to-new-suburbs.jpg" alt="Foto 6">
+  <!-- Culture Section -->
+  <section id="culture">
+    <h2 class="section-title">Kultura dhe Traditat</h2>
+    <div class="content">
+      <p>Gjirokastra është një qendër kulturore ku traditat, zanatet dhe festivitetet tradicionale gjallërohen çdo vit. Me festivalet e artit, muzikës popullore dhe ekspozitat e trashëgimisë kulturore, qyteti mbetet një pikë referimi për ruajtjen e identitetit shqiptar.</p>
+    </div>
   </section>
 
-  <section id="video" class="video">
-    <h2>Shiko Gjirokastrën</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/BdxAO77Kefw" title="Gjirokastra Tour Video 1" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/7Ma3XKo88aw" title="Gjirokastra Tour Video 2" allowfullscreen></iframe>
+  <!-- Activities Section -->
+  <section id="activities">
+    <h2 class="section-title">Aktivitete Turistike</h2>
+    <div class="content">
+      <ul>
+        <li>Vizitë në Kalanë e Gjirokastrës</li>
+        <li>Shëtitje nëpër Pazarin e Vjetër</li>
+        <li>Vizitë në Shtëpinë e Skëndulit</li>
+        <li>Ecje në natyrë në Luginën e Drinos</li>
+        <li>Vizitë në Muzeun Etnografik</li>
+        <li>Vizitë në Muzeun e Armeve</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="map" class="map">
-    <h2>Vendodhja</h2>
-    <iframe src="https://www.google.com/maps?q=Gjirokast%C3%ABr%2C%20Albania&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2 class="section-title">Galeri</h2>
+    <div class="gallery">
+      <img src="https://ts4.mm.bing.net/th?id=OIP.kOsppVlfQa5jAg0kgL8xogHaEK&pid=15.1" alt="Foto 1">
+      <img src="https://th.bing.com/th/id/OIP.o8yrwFEXlc307Gw79ac4FQHaFj?w=226&h=180&c=7&r=0&o=5&pid=1.7" alt="Foto 2">
+      <img src="https://th.bing.com/th/id/OIP.qnUvR0oUp5wr0CqVSrXXjQHaEK?w=328&h=184&c=7&r=0&o=5&pid=1.7" alt="Foto 3">
+      <img src="https://th.bing.com/th/id/R.c921b8d59dbce0a6c407cdee13e0b47f?rik=lCI0m8oekZmDyw&pid=ImgRaw&r=0" alt="Foto 4">
+      <img src="https://th.bing.com/th/id/OIP.RhTvsnoaa6-ZA8pOX3bCpAHaEK?w=326&h=183&c=7&r=0&o=5&pid=1.7" alt="Foto 5">
+      <img src="https://e1.pxfuel.com/desktop-wallpaper/919/790/desktop-wallpaper-gjirokastra-or-gjirokaster-albania-looking-across-the-typical-architecture-of-the-old-town-to-new-suburbs.jpg" alt="Foto 6">
+    </div>
   </section>
 
+  <!-- Video Section -->
+  <section id="video">
+    <h2 class="section-title">Shiko Gjirokastrën</h2>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/BdxAO77Kefw" title="Gjirokastra Tour Video 1" allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/7Ma3XKo88aw" title="Gjirokastra Tour Video 2" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section id="map">
+    <h2 class="section-title">Vendodhja</h2>
+    <div class="map">
+      <iframe src="https://www.google.com/maps?q=Gjirokast%C3%ABr%2C%20Albania&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- Additional Facts Section -->
+  <section id="facts">
+    <h2 class="section-title">Fakta interesante për Gjirokastrën</h2>
+    <div class="content">
+      <ul>
+        <li>Qyteti është i njohur si "Qyteti i Gurtë" për shkak të ndërtimit tradicional me gurë.</li>
+        <li>Trashëgimia kulturore dhe historike e Gjirokastrës është vlerësuar nga UNESCO.</li>
+        <li>Çdo cep i qytetit rrëfen historinë e kohërave osmanase dhe më herët.</li>
+        <li>Festivale kulturore dhe artistike mbajnë gjallë traditat e lashta shqiptare.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
   <section id="contact" class="contact">
-    <h2>Na Kontaktoni</h2>
-    <p>Për më shumë informacion, na kontaktoni në:</p>
-    <p>Email: example@email.com</p>
-    <p>Telefon: +1234567890</p>
+    <h2 class="section-title">Na Kontaktoni</h2>
+    <div class="content">
+      <p>Për më shumë informacion, na kontaktoni në:</p>
+      <p>Email: example@email.com</p>
+      <p>Telefon: +1234567890</p>
+    </div>
   </section>
 
+  <!-- Social Media Section -->
   <section class="social">
-    <p>Për të parë më shumë në platformat sociale na gjeni në :</p>
+    <p>Për të parë më shumë në platformat sociale, na gjeni në:</p>
     <a class="facebook" href="https://www.facebook.com/gjirokastraofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a class="twitter" href="https://twitter.com/gjirokastra" target="_blank"><i class="fab fa-twitter"></i></a>
     <a class="instagram" href="https://www.instagram.com/gjirokastraofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
