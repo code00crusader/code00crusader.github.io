@@ -1,243 +1,216 @@
-
-
 <!DOCTYPE html>
 <html lang="sq">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gjirokastra në sytë e një turisti</title>
-    <style>
-        :root {
-            --primary-color: #1abc9c;
-            --secondary-color: #16a085;
-            --accent-color: #f39c12;
-            --light-bg: #ecf0f1;
-            --dark-bg: #2c3e50;
-            --text-color: #2d3436;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gjirokastra në sytë e një turisti</title>
+  <style>
+    :root {
+      --primary-color: #1abc9c;
+      --secondary-color: #16a085;
+      --accent-color: #f39c12;
+      --light-bg: #ecf0f1;
+      --dark-bg: #2c3e50;
+      --text-color: #2d3436;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            transition: background-color 0.5s, color 0.5s;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--light-bg);
+      color: var(--text-color);
+      transition: background-color 0.5s, color 0.5s;
+    }
 
-        header {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            animation: fadeIn 2s ease-in;
-        }
+    header {
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
 
-        nav {
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-            text-align: center;
-        }
+    nav {
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
+      text-align: center;
+    }
 
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--secondary-color);
-            font-weight: bold;
-            transition: color 0.3s;
-        }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--secondary-color);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-        nav a:hover {
-            color: var(--accent-color);
-        }
+    nav a:hover {
+      color: var(--accent-color);
+    }
 
-        nav button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-left: 15px;
-        }
+    nav button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 15px;
+    }
 
-        .slideshow {
-            max-width: 100%;
-            height: 450px;
-            margin: 20px auto;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-        }
+    .slideshow {
+      max-width: 100%;
+      height: 450px;
+      margin: 20px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
 
-        .slides {
-            display: flex;
-            width: 300%;
-            animation: slide 12s infinite;
-        }
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
 
-        .slides img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-        }
+    .slides img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
 
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
 
-            33% {
-                transform: translateX(-100%);
-            }
+    .stats, .events, .description, .activities, .practical-info, .products {
+      text-align: center;
+      margin: 30px 10px;
+    }
 
-            66% {
-                transform: translateX(-200%);
-            }
+    .stat-box {
+      display: inline-block;
+      margin: 15px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, background-color 0.3s;
+    }
 
-            100% {
-                transform: translateX(0);
-            }
-        }
+    .stat-box:hover {
+      transform: scale(1.05);
+      background-color: var(--light-bg);
+    }
 
-        .stats, .events, .description, .activities, .practical-info, .products {
-            text-align: center;
-            margin: 30px 10px;
-        }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px 10px;
+    }
 
-        .stat-box {
-            display: inline-block;
-            margin: 15px;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, background-color 0.3s;
-        }
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      margin: 10px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
 
-        .stat-box:hover {
-            transform: scale(1.05);
-            background-color: var(--light-bg);
-        }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 30px 10px;
-        }
+    .video, .map {
+      text-align: center;
+      margin: 30px 10px;
+    }
 
-        .gallery img {
-            width: 300px;
-            height: 200px;
-            margin: 10px;
-            object-fit: cover;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
+    iframe {
+      border: none;
+      border-radius: 10px;
+      width: 560px;
+      height: 315px;
+    }
 
-        .gallery img:hover {
-            transform: scale(1.1);
-        }
+    .contact {
+      background-color: var(--light-bg);
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .social {
+      text-align: center;
+      margin: 20px;
+    }
 
-        .video, .map {
-            text-align: center;
-            margin: 30px 10px;
-        }
+    .social a {
+      margin: 0 8px;
+      font-size: 24px;
+    }
 
-        iframe {
-            border: none;
-            border-radius: 10px;
-            width: 560px;
-            height: 315px;
-        }
+    .social a.facebook { color: #1877f2; }
+    .social a.twitter { color: #1da1f2; }
+    .social a.instagram { color: #e4405f; }
+    .social a.youtube { color: #ff0000; }
 
-        .contact {
-            background-color: var(--light-bg);
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            margin: 20px auto;
-            text-align: center;
-        }
-        .social {
-            text-align: center;
-            margin: 20px;
-        }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
 
-        .social a {
-            margin: 0 8px;
-            font-size: 24px;
-        }
+    .dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
 
-        .social a.facebook {
-          color: #1877f2;
-        }
-        .social a.twitter {
-          color: #1da1f2;
-        }
-        .social a.instagram{
-          color: #e4405f;
-        }
-        .social a.youtube{
-          color: #ff0000;
-        }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        #backToTop {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-        }
+    .activities ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: left;
+      display: inline-block;
+    }
 
-        .dark-mode {
-            background-color: #121212;
-            color: #ffffff;
-        }
+    .activities li {
+      margin: 10px 0;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .activities ul {
-            list-style-type: none;
-            padding: 0;
-            text-align: left;
-            display: inline-block;
-        }
-
-        .activities li {
-            margin: 10px 0;
-        }
-
-        .activities li::before {
-            content: "•";
-            margin-right: 10px;
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    .activities li::before {
+      content: "•";
+      margin-right: 10px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
-<header>
+  <header>
     <h1>Gjirokastra në sytë e një turisti</h1>
     <p>Zbulo bukuritë e "Qytetit të Gurtë"</p>
-</header>
+  </header>
 
-<nav>
+  <nav>
     <a href="#slideshow">Slideshow</a>
     <a href="#description">Përshkrimi</a>
     <a href="#activities">Aktivitete</a>
@@ -246,80 +219,81 @@
     <a href="#map">Harta</a>
     <a href="#contact">Kontakt</a>
     <button onclick="toggleDarkMode()">Dark Mode</button>
-</nav>
+  </nav>
 
-<section id="slideshow" class="slideshow">
+  <section id="slideshow" class="slideshow">
     <div class="slides">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Gjirokastra.jpg" alt="Gjirokastër">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Gjirokast%C3%ABr_old_city.jpg" alt="Shtëpitë karakteristike">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Castle_of_Gjirokast%C3%ABr.jpg" alt="Kalaja">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Gjirokastra.jpg" alt="Gjirokastër">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Gjirokast%C3%ABr_old_city.jpg" alt="Shtëpitë karakteristike">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Castle_of_Gjirokast%C3%ABr.jpg" alt="Kalaja">
     </div>
-</section>
-<section id="description" class="description">
-    <h2>Përshkrimi i Gjirokastrës</h2>
-    <p>Gjirokastra, e njohur si "Qyteti i Gurtë", është një qytet muze dhe Trashëgimi Botërore e UNESCO-s, i famshëm për arkitekturën e tij karakteristike të shtëpive të gurtë. Qyteti ka një histori të pasur, duke u themeluar në shekullin e IV-të dhe duke u zhvilluar nën sundimin e Perandorisë Bizantine dhe Osmane. Kuzhina tradicionale e zonës ofron shembuj të shijshëm si "Pasha Qofte" dhe "Oshaf". Gjirokastra është e njohur për kalanë e saj madhështore, e cila dominon qytetin dhe ofron pamje panoramike të mrekullueshme. Qyteti është gjithashtu shtëpia e Festivalit Folklorik Kombëtar, një ngjarje e rëndësishme kulturore që tërheq vizitorë nga e gjithë bota. Arkitektura e Gjirokastrës, me shtëpitë e saj karakteristike të gurtë, është një shembull i shkëlqyer i stilit ballkanik dhe osman. Qyteti ka ruajtur me kujdes trashëgiminë e tij kulturore dhe historike, duke ofruar një eksperiencë unike për vizitorët.</p>
-</section>
+  </section>
 
-<section id="activities" class="activities">
+  <section id="description" class="description">
+    <h2>Përshkrimi i Gjirokastrës</h2>
+    <p>Gjirokastra, e njohur si "Qyteti i Gurtë", është një qytet muze dhe Trashëgimi Botërore e UNESCO-s, i famshëm për arkitekturën e tij karakteristike të shtëpive të gurtë. Qyteti ka një histori të pasur që shpaloset nëpërpjet kohës dhe mbush vështrimin me pamje panoramike të mrekullueshme nga kalaja që dominon qytetin.</p>
+  </section>
+
+  <section id="activities" class="activities">
     <h2>Aktivitete Turistike</h2>
     <ul>
-        <li>Vizitë në Kalanë e Gjirokastrës</li>
-        <li>Shëtitje nëpër Pazarin e Vjetër</li>
-        <li>Vizitë në Shtëpinë e Skënduli</li>
-        <li>Ecje në natyrë në Luginën e Drinos</li>
-        <li>Vizitë në Muzeun Etnografik</li>
-        <li>Vizitë në Muzeun e Armeve</li>
+      <li>Vizitë në Kalanë e Gjirokastrës</li>
+      <li>Shëtitje nëpër Pazarin e Vjetër</li>
+      <li>Vizitë në Shtëpinë e Skëndulit</li>
+      <li>Ecje në natyrë në Luginën e Drinos</li>
+      <li>Vizitë në Muzeun Etnografik</li>
+      <li>Vizitë në Muzeun e Armeve</li>
     </ul>
-</section>
+  </section>
 
-<section id="gallery" class="gallery">
+  <section id="gallery" class="gallery">
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Gjirokaster_house.jpg" alt="Arkitektura">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Gjirokast%C3%ABr_Bazaar.jpg" alt="Pazari">
     <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Gjirokaster_bridge.jpg" alt="Ura">
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Gjirokastra_Panorama.jpg" alt="Pamje nga Gjirokastra">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gjirokastra_Castle_Inside.jpg" alt="Brenda Kalasë">
     <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Gjirokastra_Stone_Roof.jpg" alt="Detaje Arkitekturore">
+    <!-- Added extra photo -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Gjirokaster_street.jpg" alt="Rrugë tradicionale në Gjirokastër">
+  </section>
 
-</section>
-
-<section id="video" class="video">
+  <section id="video" class="video">
     <h2>Shiko Gjirokastrën</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/YOUTUBE_ID" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIdoeDytube2" allowfullscreen></iframe>
-</section>
+    <!-- Embedded YouTube videos about Gjirokastra tourism -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/V1d1YzLpF28" title="Gjirokastra - Tour i Qytetit të Gurtë" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/KzX8Qw82VgI" title="Gjirokastra ne syte e nje turisti" allowfullscreen></iframe>
+  </section>
 
-<section id="map" class="map">
+  <section id="map" class="map">
     <h2>Vendodhja</h2>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2994.469511677333!2d20.13840671541793!3d40.07604327926135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135a507a2169651f%3A0x676991192837332c!2sGjirokast%C3%ABr!5e0!3m2!1ssq!2s!4v1703251205391!5m2!1ssq!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</section>
+  </section>
 
-<section id="contact" class="contact">
+  <section id="contact" class="contact">
     <h2>Na Kontaktoni</h2>
     <p>Për më shumë informacion, na kontaktoni në:</p>
     <p>Email: example@email.com</p>
     <p>Telefon: +1234567890</p>
-</section>
+  </section>
 
-<section class="social">
+  <section class="social">
     <p>Për të parë më shumë në platformat sociale na gjeni në :</p>
     <a class="facebook" href="https://www.facebook.com/gjirokastraofficial" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a class="twitter" href="https://twitter.com/gjirokastra" target="_blank"><i class="fab fa-twitter"></i></a>
     <a class="instagram" href="https://www.instagram.com/gjirokastraofficial/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a class="youtube" href="https://www.youtube.com/user/gjirokastra" target="_blank"><i class="fab fa-youtube"></i></a>
-</section>
+  </section>
 
-<button id="backToTop">↑</button>
+  <button id="backToTop">↑</button>
 
-<script>
+  <script>
     function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('dark-mode');
     }
-
     document.getElementById('backToTop').addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
-
-</script>
+  </script>
 
 </body>
 </html>
