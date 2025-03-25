@@ -21,6 +21,8 @@
       background-color: var(--light-bg);
       color: var(--text-color);
       transition: background-color 0.5s, color 0.5s;
+      position: relative;
+      overflow-x: hidden;
     }
 
     header {
@@ -29,6 +31,8 @@
       padding: 30px 20px;
       text-align: center;
       animation: fadeIn 2s ease-in;
+      position: relative;
+      z-index: 1;
     }
 
     nav {
@@ -36,6 +40,8 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       padding: 10px 0;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     nav a {
@@ -67,6 +73,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .slides {
@@ -201,10 +208,44 @@
       content: "•";
       margin-right: 10px;
     }
+
+    /* Decorative Shapes */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+      opacity: 0.3;
+    }
+    .shape1 {
+      width: 150px;
+      height: 150px;
+      background: var(--accent-color);
+      top: 80px;
+      left: -50px;
+    }
+    .shape2 {
+      width: 200px;
+      height: 200px;
+      background: var(--secondary-color);
+      bottom: -100px;
+      right: -100px;
+    }
+    .shape3 {
+      width: 100px;
+      height: 100px;
+      background: var(--primary-color);
+      top: 300px;
+      right: 20px;
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+
+  <!-- Decorative Shapes -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
 
   <header>
     <h1>Gjirokastra në sytë e një turisti</h1>
@@ -223,13 +264,12 @@
   </nav>
 
   <section id="slideshow" class="slideshow">
-  <div class="slides">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g318867-d2341285-Reviews-Zekate_House-Gjirokaster_Gjirokaster_County.html&psig=AOvVaw3Pm9BkD4VOjpuBuGp7gJw6&ust=1743033050659000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDFxaC2powDFQAAAAAdAAAAABAE" alt="Photo 1">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iett.al%2Fgjirokastra%2F&psig=AOvVaw03hVze6OA4CRoFNIy2EP5X&ust=1743033066303000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPja1ae2powDFQAAAAAdAAAAABAE" alt="Photo 2">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.instagram.com%2Fp%2FCr0EiHYtVT0%2F%3Fref%3Dgpd-guides.ghost.io%26hl%3Den&psig=AOvVaw03hVze6OA4CRoFNIy2EP5X&ust=1743033066303000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPja1ae2powDFQAAAAAdAAAAABAt" alt="Photo 3">
-  </div>
-</section>
-
+    <div class="slides">
+      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.com%2FAttraction_Review-g318867-d2341285-Reviews-Zekate_House-Gjirokaster_Gjirokaster_County.html&psig=AOvVaw3Pm9BkD4VOjpuBuGp7gJw6&ust=1743033050659000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJDFxaC2powDFQAAAAAdAAAAABAE" alt="Photo 1">
+      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iett.al%2Fgjirokastra%2F&psig=AOvVaw03hVze6OA4CRoFNIy2EP5X&ust=1743033066303000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPja1ae2powDFQAAAAAdAAAAABAE" alt="Photo 2">
+      <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.instagram.com%2Fp%2FCr0EiHYtVT0%2F%3Fref%3Dgpd-guides.ghost.io%26hl%3Den&psig=AOvVaw03hVze6OA4CRoFNIy2EP5X&ust=1743033066303000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPja1ae2powDFQAAAAAdAAAAABAt" alt="Photo 3">
+    </div>
+  </section>
 
   <section id="description" class="description">
     <h2>Përshkrimi i Gjirokastrës</h2>
@@ -249,7 +289,6 @@
   </section>
 
   <section id="gallery" class="gallery">
-    <!-- Gallery updated with new photo links -->
     <img src="https://ts4.mm.bing.net/th?id=OIP.kOsppVlfQa5jAg0kgL8xogHaEK&pid=15.1" alt="Foto 1">
     <img src="https://th.bing.com/th/id/OIP.o8yrwFEXlc307Gw79ac4FQHaFj?w=226&h=180&c=7&r=0&o=5&pid=1.7" alt="Foto 2">
     <img src="https://th.bing.com/th/id/OIP.qnUvR0oUp5wr0CqVSrXXjQHaEK?w=328&h=184&c=7&r=0&o=5&pid=1.7" alt="Foto 3">
@@ -260,14 +299,12 @@
 
   <section id="video" class="video">
     <h2>Shiko Gjirokastrën</h2>
-    <!-- Video embeds updated with provided YouTube links -->
     <iframe width="560" height="315" src="https://www.youtube.com/embed/BdxAO77Kefw" title="Gjirokastra Tour Video 1" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/7Ma3XKo88aw" title="Gjirokastra Tour Video 2" allowfullscreen></iframe>
   </section>
 
   <section id="map" class="map">
     <h2>Vendodhja</h2>
-    <!-- Map embed updated to a simpler version -->
     <iframe src="https://www.google.com/maps?q=Gjirokast%C3%ABr%2C%20Albania&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
