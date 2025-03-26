@@ -66,6 +66,7 @@
       margin-left: 15px;
     }
 
+    /* Updated Slideshow Styles */
     .slideshow {
       max-width: 100%;
       height: 450px;
@@ -78,8 +79,8 @@
 
     .slides {
       display: flex;
-      width: 300%;
-      animation: slide 12s infinite;
+      width: 400%; /* Updated to 400% for 4 images */
+      animation: slide 16s ease-in-out infinite;
     }
 
     .slides img {
@@ -88,10 +89,16 @@
       object-fit: cover;
     }
 
+    /* Updated keyframes for smoother transitions */
     @keyframes slide {
       0% { transform: translateX(0); }
-      33% { transform: translateX(-100%); }
-      66% { transform: translateX(-200%); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      95% { transform: translateX(-300%); }
       100% { transform: translateX(0); }
     }
 
@@ -270,8 +277,8 @@
       <img src="https://www.visitalbania.app/wp-content/uploads/2022/07/gjirokastra-zekate-house-1.jpg" alt="Pamje nga Gjirokastra">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnh4C_MTPYCyhqcdPhUbtVf80BCro6QvLqDw&s" alt="Qyteti i Vjetër i Gjirokastrës">
       <img src="https://www.mywanderlust.pl/wp-content/uploads/2019/12/gjirokaster-albania-22.jpg" alt="Kalaja e Gjirokastrës">
-    <img src="https://ata.gov.al/wp-content/uploads/2024/03/bazar-gjirokaster.jpg" alt="Kalaja e Gjirokastrës">
- </div>
+      <img src="https://ata.gov.al/wp-content/uploads/2024/03/bazar-gjirokaster.jpg" alt="Bazar në Gjirokastër">
+    </div>
   </section>
 
   <!-- Description Section -->
