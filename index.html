@@ -79,8 +79,8 @@
 
     .slides {
       display: flex;
-      width: 400%; /* Updated to 400% for 4 images */
-      animation: slide 16s ease-in-out infinite;
+      width: 400%; /* 4 images in total */
+      animation: slide 24s ease-in-out infinite;
     }
 
     .slides img {
@@ -89,17 +89,15 @@
       object-fit: cover;
     }
 
-    /* Updated keyframes for smoother transitions */
     @keyframes slide {
       0% { transform: translateX(0); }
       20% { transform: translateX(0); }
-      25% { transform: translateX(-100%); }
-      45% { transform: translateX(-100%); }
-      50% { transform: translateX(-200%); }
-      70% { transform: translateX(-200%); }
-      75% { transform: translateX(-300%); }
-      95% { transform: translateX(-300%); }
-      100% { transform: translateX(0); }
+      30% { transform: translateX(-100%); }
+      50% { transform: translateX(-100%); }
+      60% { transform: translateX(-200%); }
+      80% { transform: translateX(-200%); }
+      90% { transform: translateX(-300%); }
+      100% { transform: translateX(-300%); }
     }
 
     section {
